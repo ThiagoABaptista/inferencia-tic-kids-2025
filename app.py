@@ -117,11 +117,12 @@ with st.sidebar:
     st.subheader("Validação de Domínio (Saneamento)")
     st.markdown(
         f"""
-        - `IDADE_KIDS` restrita a **[9, 17] anos** (Pop. filtrados: `{log_pop.get('IDADE_KIDS_fora_dominio', 0)}`)
-        - `RESP_IDADE` restrita a **[14, 110] anos** (Pop. filtrados: `{log_pop.get('RESP_IDADE_invalidos', 0)}`)
+        - `IDADE_KIDS`: restrita a **[9, 17] anos** (Pop. filtrados: `{log_pop.get('IDADE_KIDS_fora_dominio', 0)}`)
+        - `RESP_IDADE`: restrita a **[14, 110] anos** (Pop. filtrados: `{log_pop.get('RESP_IDADE_invalidos', 0)}`)
+        - `AREA`: domínio codificado `{{1, 2}}` (Pop. filtrados: `{log_pop.get('AREA_invalidos', 0)}`)
+        - `SEXO_KIDS`: domínio codificado `{{1, 2}}` (Pop. filtrados: `{log_pop.get('SEXO_KIDS_invalidos', 0)}`)
         """
     )
-
     st.info(
         "A base populacional corresponde aos microdados oficiais consolidados da pesquisa, "
         "enquanto a amostra foi extraída probabilisticamente para avaliação inferencial."
