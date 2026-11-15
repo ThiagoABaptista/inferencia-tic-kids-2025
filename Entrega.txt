@@ -1,0 +1,17 @@
+ENTREGÁVEIS — PROJETO DE INFERÊNCIA ESTATÍSTICA E AMOSTRAGEM (IA003)
+Thiago Aschebrock Baptista - 11/2026
+
+1. Painéis Interativos (Análise Descritiva da População, Amostra e Inferência Estatística):
+https://inferencia-tic-kids-2025-fcmbugu8snpir8xypbpbud.streamlit.app/
+
+2. Código-Fonte e Repositório do Projeto (GitHub):
+https://github.com/ThiagoABaptista/inferencia-tic-kids-2025
+
+3. Vídeo de Apresentação (YouTube — máx. 5 minutos):
+[INSERIR LINK DO YOUTUBE AQUI]
+
+4. Base de Dados Original e Identificação da Fonte:
+- Fonte: Cetic.br / NIC.br (Comitê Gestor da Internet no Brasil — CGI.br) — Pesquisa TIC Kids Online Brasil 2025
+- Página geral da pesquisa: https://cetic.br/pt/pesquisa/kids-online/
+- Página de arquivos e tabelas de resultados: https://cetic.br/pt/arquivos/kidsonline/2025/criancas/
+- Download direto do arquivo (ZIP): https://cetic.br/media/microdados/972/tic_kids_online_brasil_2025_criancas_tabelas_xlsx_v1.0.zip

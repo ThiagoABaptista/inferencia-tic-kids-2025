@@ -94,7 +94,7 @@ with st.sidebar:
     st.subheader("Contexto da Pesquisa")
     st.markdown(
         """
-        - **Órgão Responsável**: Cetic.br | NIC.br
+        - **Órgão Responsável**: [Cetic.br | NIC.br](https://cetic.br/pt/pesquisa/kids-online/)
         - **Tema**: Acesso, uso de tecnologias e bem-estar digital de crianças e adolescentes.
         - **Público-alvo**: Indivíduos de 9 a 17 anos no Brasil e seus pais ou responsáveis legais.
         - **Unidade Amostral**: Indivíduo (criança/adolescente respondente).
@@ -299,8 +299,8 @@ with tab1:
 with tab2:
     st.header(f"Análise Descritiva da Amostra Aleatória Simples (n = {len(df_amostra):,})")
     st.markdown(
-        "Métricas calculadas estritamente a partir da amostra de 336 observações "
-        "($\text{seed}=42$), simulando um estudo no qual apenas a amostra fosse coletada."
+        r"Métricas calculadas estritamente a partir da amostra de 336 observações "
+        r"($\text{seed}=42$), simulando um estudo no qual apenas a amostra fosse coletada."
     )
     renderizar_bloco_descritivo(df_amostra, "Amostra")
 
@@ -308,8 +308,8 @@ with tab2:
 with tab3:
     st.header("Inferência Estatística: Intervalos de Confiança e Testes de Hipóteses")
     st.markdown(
-        """
-        Nesta seção realizamos a inferência a partir da amostra ($n = 336$) com nível de significância $\alpha = 0{,}05$
+        rf"""
+        Nesta seção realizamos a inferência a partir da amostra ($n = 336$) com nível de significância $\alpha = 0{{,}}05$
         (95% de confiança), aplicando o **Fator de Correção para População Finita (FPC)** de forma consistente
         tanto nos Intervalos de Confiança quanto nos Testes de Hipóteses. Em seguida, confrontamos diretamente com o
         parâmetro real da população ($N = 2.642$) para inspecionar a acurácia amostral.
@@ -390,17 +390,17 @@ with tab3:
     with col_h1:
         st.markdown("### 1. Média de Idade da Criança (`IDADE_KIDS`)")
         st.markdown(
-            r"""
-            - **Hipóteses**: $H_0: \mu \le 12{,}5$ vs $H_1: \mu > 12{,}5$ (Unilateral à direita)
+            rf"""
+            - **Hipóteses**: $H_0: \mu \le 12{{,}}5$ vs $H_1: \mu > 12{{,}}5$ (Unilateral à direita)
             - **Tipo de Teste**: Teste $t$ de Student para uma média (com FPC)
-            - **Domínio Elegível**: $[9, 17]$ anos ($n_{	ext{válidos}} = """ + f"{n_kids}$)"
+            - **Domínio Elegível**: $[9, 17]$ anos ($n_{{válidos}} = """ + f"{n_kids}$)"
         )
-        st.write(f"- **Estimativa Amostral ($\bar{{x}}$)**: `{media_am_kids:.3f}` anos")
+        st.write(fr"- **Estimativa Amostral ($\bar{{x}}$)**: `{media_am_kids:.3f}` anos")
         st.write(
-            f"- **IC 95% (com FPC)**: `[{ic_inf_kids:.3f}; {ic_sup_kids:.3f}]`"
+            fr"- **IC 95% (com FPC)**: `[{ic_inf_kids:.3f}; {ic_sup_kids:.3f}]`"
         )
-        st.write(f"- **Estatística $t$**: `{t_stat_kids:.4f}`")
-        st.write(f"- **Valor-$p$**: `{p_val_kids:.4f}`")
+        st.write(fr"- **Estatística $t$**: `{t_stat_kids:.4f}`")
+        st.write(fr"- **Valor-$p$**: `{p_val_kids:.4f}`")
         decisao_kids = (
             "Rejeita-se H0 ao nível de 5%"
             if p_val_kids < 0.05
@@ -409,27 +409,27 @@ with tab3:
         st.info(f"**Decisão Estatística**: {decisao_kids}")
         cobre_kids = ic_inf_kids <= param_real_kids <= ic_sup_kids
         st.write(
-            f"- **Parâmetro Populacional Real ($\mu$)**: `{param_real_kids:.3f}` | "
-            f"**Dentro do IC?** {'✅ Sim' if cobre_kids else '❌ Não'}"
+            fr"- **Parâmetro Populacional Real ($\mu$)**: `{param_real_kids:.3f}` | "
+            fr"**Dentro do IC?** {'✅ Sim' if cobre_kids else '❌ Não'}"
         )
 
         st.markdown("---")
 
         st.markdown("### 3. Proporção em Área Urbana (`AREA == 1`)")
         st.markdown(
-            r"""
-            - **Hipóteses**: $H_0: p \le 0{,}75$ vs $H_1: p > 0{,}75$ (Unilateral à direita)
+            rf"""
+            - **Hipóteses**: $H_0: p \le 0{{,}}75$ vs $H_1: p > 0{{,}}75$ (Unilateral à direita)
             - **Tipo de Teste**: Teste $Z$ para uma proporção (com FPC)
             """
         )
         st.write(
-            f"- **Estimativa Amostral ($\hat{{p}}$)**: `{p_am_area * 100:.2f}%` ({p_am_area:.4f})"
+            fr"- **Estimativa Amostral ($\hat{{p}}$)**: `{p_am_area * 100:.2f}%` ({p_am_area:.4f})"
         )
         st.write(
-            f"- **IC 95% (com FPC)**: `[{ic_inf_area * 100:.2f}%; {ic_sup_area * 100:.2f}%]`"
+            fr"- **IC 95% (com FPC)**: `[{ic_inf_area * 100:.2f}%; {ic_sup_area * 100:.2f}%]`"
         )
-        st.write(f"- **Estatística $Z$**: `{z_stat_area:.4f}`")
-        st.write(f"- **Valor-$p$**: `{p_val_area:.4e}`")
+        st.write(fr"- **Estatística $Z$**: `{z_stat_area:.4f}`")
+        st.write(fr"- **Valor-$p$**: `{p_val_area:.4e}`")
         decisao_area = (
             "Rejeita-se H0 ao nível de 5%"
             if p_val_area < 0.05
@@ -438,35 +438,34 @@ with tab3:
         st.info(f"**Decisão Estatística**: {decisao_area}")
         cobre_area = ic_inf_area <= param_real_area <= ic_sup_area
         st.write(
-            f"- **Parâmetro Populacional Real ($p$)**: `{param_real_area * 100:.2f}%` | "
-            f"**Dentro do IC?** {'✅ Sim' if cobre_area else '❌ Não'}"
+            fr"- **Parâmetro Populacional Real ($p$)**: `{param_real_area * 100:.2f}%` | "
+            fr"**Dentro do IC?** {'✅ Sim' if cobre_area else '❌ Não'}"
         )
 
     with col_h2:
         st.markdown("### 2. Média de Idade do Responsável (`RESP_IDADE`)")
         st.markdown(
-            r"""
-            - **Hipóteses**: $H_0: \mu = 40$ vs $H_1: \mu 
-eq 40$ (Bilateral)
+            rf"""
+            - **Hipóteses**: $H_0: \mu = 40$ vs $H_1: \mu \neq 40$ (Bilateral)
             - **Tipo de Teste**: Teste $t$ de Student para uma média (com FPC)
-            - **Observações Válidas**: $n_{	ext{válidos}} = """ + f"{n_resp}$"
+            - **Observações Válidas**: $n_{{válidos}} = """ + f"{n_resp}$"
         )
-        st.write(f"- **Estimativa Amostral ($\bar{{x}}$)**: `{media_am_resp:.3f}` anos")
+        st.write(fr"- **Estimativa Amostral ($\bar{{x}}$)**: `{media_am_resp:.3f}` anos")
         st.write(
-            f"- **IC 95% (com FPC)**: `[{ic_inf_resp:.3f}; {ic_sup_resp:.3f}]`"
+            fr"- **IC 95% (com FPC)**: `[{ic_inf_resp:.3f}; {ic_sup_resp:.3f}]`"
         )
-        st.write(f"- **Estatística $t$**: `{t_stat_resp:.4f}`")
-        st.write(f"- **Valor-$p$**: `{p_val_resp:.4e}`")
+        st.write(fr"- **Estatística $t$**: `{t_stat_resp:.4f}`")
+        st.write(fr"- **Valor-$p$**: `{p_val_resp:.4e}`")
         decisao_resp = (
             "Rejeita-se H0 ao nível de 5%"
             if p_val_resp < 0.05
             else "Não se rejeita H0 ao nível de 5%"
         )
-        st.info(f"**Decisão Estatística**: {decisao_resp}")
+        st.info(fr"**Decisão Estatística**: {decisao_resp}")
         cobre_resp = ic_inf_resp <= param_real_resp <= ic_sup_resp
         st.write(
-            f"- **Parâmetro Populacional Real ($\mu$)**: `{param_real_resp:.3f}` | "
-            f"**Dentro do IC?** {'✅ Sim' if cobre_resp else '❌ Não'}"
+            fr"- **Parâmetro Populacional Real ($\mu$)**: `{param_real_resp:.3f}` | "
+            fr"**Dentro do IC?** {'✅ Sim' if cobre_resp else '❌ Não'}"
         )
 
         st.markdown("---")
@@ -474,8 +473,7 @@ eq 40$ (Bilateral)
         st.markdown("### 4. Proporção do Sexo Masculino (`SEXO_KIDS == 1`)")
         st.markdown(
             r"""
-            - **Hipóteses**: $H_0: p = 0{,}50$ vs $H_1: p 
-eq 0{,}50$ (Bilateral)
+            - **Hipóteses**: $H_0: p = 0{,}50$ vs $H_1: p \neq 0{,}50$ (Bilateral)
             - **Tipo de Teste**: Teste $Z$ para uma proporção (com FPC)
             """
         )
@@ -628,7 +626,7 @@ eq 0{,}50$ (Bilateral)
     st.markdown("---")
     st.subheader("Discussão Teórica, Variabilidade Amostral e Limitações")
     st.markdown(
-        """
+        r"""
         1. **Efeito da Aleatorização e Validade dos Intervalos de Confiança**:
            - Observa-se que todos os intervalos de 95% calculados com base na amostra de tamanho $n = 336$ contêm os
              verdadeiros parâmetros populacionais $\theta$. Esse resultado ilustra de forma prática o teorema central da inferência:
