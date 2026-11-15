@@ -8,7 +8,7 @@ https://inferencia-tic-kids-2025-fcmbugu8snpir8xypbpbud.streamlit.app/
 https://github.com/ThiagoABaptista/inferencia-tic-kids-2025
 
 3. Vídeo de Apresentação (YouTube — máx. 5 minutos):
-[INSERIR LINK DO YOUTUBE AQUI]
+https://youtu.be/_C3oz9MB0r4
 
 4. Base de Dados Original e Identificação da Fonte:
 - Fonte: Cetic.br / NIC.br (Comitê Gestor da Internet no Brasil — CGI.br) — Pesquisa TIC Kids Online Brasil 2025
